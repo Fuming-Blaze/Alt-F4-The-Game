@@ -61,6 +61,10 @@ int main()
     bool playerUp, playerDown, playerLeft, playerRight = false;
 
     playerClass playerObject;
+	font fixedsysFont;
+	fixedsysFont.loadFromFile("Documents/Alt-F4/8514fix.ttf");
+
+	Text helloText("Hello MrGuy!",fixedsysFont, 50 );
 
 	Texture snail;
 	snail.loadFromFile("Documents/Alt-F4/Stress_Ball.png");
@@ -90,6 +94,7 @@ int main()
         app.clear(); 
 
 		app.draw(snail);
+		app.draw(helloText)
 		snail.move(Vector2f(playerObject.xvel, playerObject.yvel))
 
         // Draw the sprite
