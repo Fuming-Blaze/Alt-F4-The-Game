@@ -1,10 +1,23 @@
 xdc    #include <SFML/Graphics.hpp>
-    #include <iostream>
-    int windowWidth = 400;
-    int windowHeight = 300;
+#include <iostream>
+int windowWidth = 800;
+    int windowHeight = 1000;
+	int halfWinHeight = windowHeight/ 2;
+	int halfWinWidth = windowWidth/2
+
     using namespace sf;
     using namespace std;
 
+	class platformClass(float xpos, float ypos){
+		public 
+		float xpos;
+		float ypos;
+		float xvel;
+		float yvel;
+		platformClass{
+			xpos = xpos;
+		ypos = ypos;
+	}
 
     class playerClass{
         public:
@@ -19,31 +32,41 @@ xdc    #include <SFML/Graphics.hpp>
 				yvel = 0;
 				xvel = 0;
 				yvel = 0;
-                
+				
+
+
+				}
 
 
             }
-			void update(bool playerUp,bool playerDown,bool playerLeft,bool playerRight) {
-				
-				    if (playerRight) {
-						playerFaceRight = true;
+			void update(bool playerUp, bool playerDown, bool playerLeft, bool playerRight) {
+
+				if (playerRight) {
+					playerFaceRight = true;
 					xvel = 5;
 				}
-					if(playerLeft){ 
-						xvel = -5;
-}
-					if(playerDown) {
-						yvel = 5;
-					}
-					if (playerUp) {
-						yvel = -5;
-					}
-					if (!(playerRight || playerLeft)) {
-						xvel = 0;
-					}
-					xpos += xvel;
-					ypos += yvel;
-					cout << xpos << endl;
+				if (playerLeft) {
+					xvel = -5;
+				}
+				if (playerDown) {
+					yvel = 5;
+				}
+				if (playerUp) {
+					yvel = -5;
+				}
+				if (!(playerRight || playerLeft)) {
+					xvel = 0;
+				}
+				xpos += xvel;
+				ypos += yvel;
+			}
+			void collide() {
+				if (xpos > 100) {
+					xvel = 0;
+
+				}
+
+			}
 					
 					
 
